@@ -10,12 +10,13 @@ import java.lang.annotation.Target;
 import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Objects;
-
+/**
+ * Unique values controller
+ */
 public class UniqueControl extends ValueControllerAbstract {
     @Target(ElementType.FIELD)
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface IsUnique {
-    }
+    public @interface IsUnique {}
 
 
     private Collection<? extends Object> collection;

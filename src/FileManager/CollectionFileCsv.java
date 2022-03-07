@@ -11,10 +11,7 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 /**
  * Manage csv file with collection
@@ -58,16 +55,19 @@ public class CollectionFileCsv extends CollectionFileAbstract {
      */
     @Override
     public void OutputCollection(Collection<Worker> collection) {
-        System.out.println(fileName);
-        ArrayList<Worker> list = new ArrayList<Worker>();
+        if (fileName == null){
+            prints.print("Путь к файлу не задан.");
+            return;
+        }
+
+         ArrayList<Worker> list = new ArrayList<Worker>();
         list.addAll(collection);
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName))) {
             new StatefulBeanToCsvBuilder<Worker>(bufferedWriter).build().write(list);
             //beanToCsv
         }
-        catch (IOException e){    System.out.println(1);    }
-        catch (CsvDataTypeMismatchException e){System.out.println(2);}
-        catch (CsvRequiredFieldEmptyException e){System.out.println(3);}
+        catch (IOException e){prints.print("Ошибка с файлом.");}
+        catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException e){prints.print("Ошибка записи csv.");}
     }
 
 //    private boolean checkCollection(Collection<Worker> collection){

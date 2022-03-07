@@ -1,7 +1,9 @@
 package ValueControl;
 
 import java.lang.reflect.Field;
-
+/**
+ * abstract controller
+ */
 abstract public class ValueControllerAbstract {
     protected Field field;
     protected Checks check;

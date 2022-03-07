@@ -41,7 +41,7 @@ public class CommandController {
                         argumentsTool.setArguments(askedCommand.getArguments());
                     }
                 }
-                catch (NoSuchFieldException e) {}
+                catch (NoSuchFieldException ignore) {}
                 catch (IllegalAccessException e)
                 {
                     System.out.println("//No acess!");

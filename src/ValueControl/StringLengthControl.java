@@ -2,12 +2,17 @@ package ValueControl;
 
 import Exceptions.ValueException;
 
+import java.io.BufferedReader;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.lang.reflect.Field;
+import java.nio.ByteBuffer;
 
+/**
+ * String length controller
+ */
 public class StringLengthControl extends ValueControllerAbstract {
     @Target(ElementType.FIELD)
     @Retention(RetentionPolicy.RUNTIME)
@@ -31,6 +36,9 @@ public class StringLengthControl extends ValueControllerAbstract {
 
     {
         check = (Object value) -> {
+
+            ByteBuffer buffer = ByteBuffer.allocate(1);
+
             if (value != null){
             String stringValue = (String) value;
 

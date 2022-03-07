@@ -40,7 +40,9 @@ public class WorkerValues {
         }
         return valuesControls;
     }
-
+    /**
+     * @return Arraylist with check lambda
+     */
     public static ArrayList<Checks> getChecks(String name){
         HashMap<TypeOfControl, ValueControllerAbstract> valueControllers = values.get(name);
         ArrayList<Checks> checks = new ArrayList<>();
@@ -49,7 +51,9 @@ public class WorkerValues {
         }
         return checks;
     }
-
+    /**
+     * @return String limits for field
+     */
     public static String getLimitsString(String name){
         HashMap<TypeOfControl, ValueControllerAbstract> valueControllers = values.get(name);
         StringBuffer stringBuffer =new StringBuffer();

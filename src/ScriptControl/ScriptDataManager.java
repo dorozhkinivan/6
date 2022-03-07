@@ -7,8 +7,6 @@ import Exceptions.CommandsNotFoundException;
 import Exceptions.ValueException;
 import Exceptions.WorkerDataInputException;
 import Utility.WorkerActions;
-import ValueControl.NullControl;
-import javafx.geometry.Pos;
 
 import java.io.File;
 import java.io.FileNotFoundException;
